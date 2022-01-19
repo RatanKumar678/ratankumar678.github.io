@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Ratan Kumar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+	<link rel="manifest" href="/manifest.json">
+</head>
+
+<!-- <?php
+header('Content-Type: application/json');
+
+$signed_request = $_POST['signed_request'];
+$data = parse_signed_request($signed_request);
+$user_id = $data['user_id'];
+
+// Start data deletion
+
+$status_url = 'https://www.<your_website>.com/deletion?id=abc123'; // URL to track the deletion
+$confirmation_code = 'abc123'; // unique code for the deletion request
+
+$data = array(
+  'url' => $status_url,
+  'confirmation_code' => $confirmation_code
+);
+echo json_encode($data);
+
+function parse_signed_request($signed_request) {
+  list($encoded_sig, $payload) = explode('.', $signed_request, 2);
+
+  $secret = "appsecret"; // Use your app secret here
+
+  // decode the data
+  $sig = base64_url_decode($encoded_sig);
+  $data = json_decode(base64_url_decode($payload), true);
+
+  // confirm the signature
+  $expected_sig = hash_hmac('sha256', $payload, $secret, $raw = true);
+  if ($sig !== $expected_sig) {
+    error_log('Bad Signed JSON signature!');
+    return null;
+  }
+
+  return $data;
+}
+
+function base64_url_decode($input) {
+  return base64_decode(strtr($input, '-_', '+/'));
+}
+?> -->
+
+<body>
+
+    <div class="overLay-section">
+        <div class="my-QR"></div>
+        <div class="like-block">
+        <!-- facebook -->
+            <div class="like-me">
+                <div class="user-login w-100" id="hideme">
+                        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+                </div>
+                <div id="logedIN">
+                    <div id="picture"></div>
+                    <div class="name">Welcome! <span id="name"></span></div>
+                </div>
+                <div class="w-100">
+                    <div class="fb-like" data-share="true" data-width="100" data-show-faces="true"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <nav class="col-12 side-nav">
+        <div class="log-block w-100" rel="home">
+            <!-- <div class="w-100">
+      <div class="user"></div>
+  </div> -->
+            <span class="r rk-font">RK</span>
+            <!-- <span class="kumar">Kumar</span> -->
+        </div>
+        <div class="nav w-100">
+            <div class="nav-list nav-links">
+                <a class="nav-icon relative home bg-cover active" rel="home"></a>
+                <a class="nav-icon relative about bg-cover" rel="about"></a>
+                <a class="nav-icon relative skills bg-cover" rel="skills"></a>
+                <a class="nav-icon relative gallery bg-cover" rel="gallery"></a>
+                <a class="nav-icon relative contact bg-cover" rel="contact"></a>
+                <a class="nav-icon relative resume bg-cover" rel="resume"></a>
+            </div>
+        </div>
+
+
+    </nav>
+
+    <section class="main-section">
+
+        <section id="home" class="window_ht home-section page-anim bg-cover">
+            <div class="col-12 ht-100 d-table common-block">
+                <div class="d-cell home-block">
+                    <!-- <h1 class="home-head">Hi,<br>I'm Ratan Kumar</h1> -->
+                    <h1 class="home-head">
+                        <span class="l1 l">H</span><span class="l2 l">i</span><span class="l3 l">,</span><br>
+                        <span class="l4 l">I</span><span class="l5 l">'</span><span class="l6 l">m</span>
+                        <span class="r-word l7 l">R</span><span class="l8 l">a</span><span class="l9 l">t</span><span class="l10 l">a</span><span class="l11 l">n</span>
+                        <span class="k-word l12 l">K</span><span class="l13 l">u</span><span class="l14 l">m</span><span class="l15 l">a</span><span class="l16 l">r</span>
+                    </h1>
+                    <p class="home-sub">
+                        <span class="my-pos swap-from-left">I am UI/UX front end Developer.</span><br>
+                        <a href="javascript:;" class="contact-me" rel="contact"><span>Contact Me</span><span class="arrow-right"><svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 476.213 476.213"><path d="M405.606 167.5l-21.212 21.213 34.393 34.393H0v30h418.787L384.394 287.5l21.212 21.213 70.607-70.607"></path></svg></span></a>
+                    </p>
+                </div>
+				<!-- <div class="col-12">
+			<img class="qr-code-image__image" ng-src="https://qrcgcustomers.s3.amazonaws.com/account3308558/qrcodes/10128642.png" ng-show="imageUrl &amp;&amp; !loading" src="https://qrcgcustomers.s3.amazonaws.com/account3308558/qrcodes/10128642.png" style="">
+            </div> -->
+            
+            </div>
+            
+
+        </section>
+        <section id="about" class="window_ht about-section page-anim">
+            <canvas id="canvas"></canvas>
+            <div class="col-12 ht-100 d-table common-block">
+                <div class="d-cell about-block">
+                    <div class="about-dis relative col-12">
+                        <div class="my-dis pull-left relative">
+                            <!-- <div class="my-img bg-cover"></div> -->
+                            <h2 class="about-head">
+                                <span class="about-r uppercase"><span class="l">R</span><span class="l">a</span><span class="l">t</span><span class="l">a</span><span class="l">n</span></span>
+                                <br>
+                                <span class="about-k uppercase"><span class="l">K</span><span class="l">u</span><span class="l">m</span><span class="l">a</span><span class="l">r</span></span><br>
+                                <span class="work-at">@ Capita India</span>
+                            </h2>
+                            <h4 class="about-text">About Me</h4>
+                            <p class="abut-dis">
+                                Experienced Web Developer with a demonstrated history of working in the marketing and advertising industry.<br><br> Skilled in HTML 5, CSS 3, JQuery, Bootstrap (3,4), JavaScript and Ruby on Rails and Basic, Angular JS,
+                                User Interface Design. Strong engineering professional with a Bachelor’s Degree focused in Computer Science from Progressive Educational Society Modern College of Engineering, Shivajinagar, Pune 5.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="skills" class="window_ht skills-section page-anim">
+            <div class="col-12 ht-100 d-table common-block">
+                <div class="d-cell about-block">
+
+                    <div class="resume-box col-6 resume-box-1 tab-full">
+                        <span class="icon animated fadeInDown visible" data-animation="fadeInDown"><span class="l"><img src="img/trophy.png"></span></span>
+                        <h4 class="skill-head-text"><strong><span class="l">Skills</span></strong><span class="skill-head-text-sub"><span class="l">&amp;</span> <span class="l">abilities</span></span>
+                        </h4>
+                        <!-- Skill -->
+                        <div class="skill">
+                            <div class="progress progress-animated">
+                                <div class="progress-bar progress-bar-primary" role="progressbar" data-progress="70" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <strong class="skill-head">JavaScript / Angular 2+ / ReactJS / jQuery</strong>
+                        </div>
+                        <!-- Skill -->
+                        <div class="skill">
+                            <div class="progress progress-animated">
+                                <div class="progress-bar progress-bar-primary" role="progressbar" data-progress="80" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <strong class="skill-head">Bootstrap 3 &amp; 4 , Responsive Design , semantic UI , UiKit , Angular Material , Kendo UI</strong>
+                        </div>
+
+                        <!-- Skill -->
+                        <div class="skill">
+                            <div class="progress progress-animated">
+                                <div class="progress-bar progress-bar-primary" role="progressbar" data-progress="90" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <strong class="skill-head">HTML5 / CSS3</strong>
+                        </div>
+                        <!-- Skill -->
+                        <div class="skill">
+                            <div class="progress progress-animated">
+                                <div class="progress-bar progress-bar-primary" role="progressbar" data-progress="90" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <strong class="skill-head">SVG Animation / Custom Animation</strong>
+                        </div>
+                    
+                        <!-- Skill -->
+                        <div class="skill">
+                            <div class="progress progress-animated">
+                                <div class="progress-bar progress-bar-primary" role="progressbar" data-progress="60" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <strong class="skill-head">Json , Ajax  , XML , Lodash js , Chart.js , D3.js </strong>
+                        </div>
+                        <!-- Skill -->
+                        <div class="skill">
+                            <div class="progress progress-animated">
+                                <div class="progress-bar progress-bar-primary" role="progressbar" data-progress="40" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <strong class="skill-head">ROR , Typescript , RxJs</strong>
+                        </div>
+                    </div>
+
+                    <div class="resume-box col-6 resume-box-2 tab-full">
+                        <span class="icon animated fadeInDown visible" data-animation="fadeInDown"><span class="l"><img src="img/fantasy.png"></span></span>
+                        <h4 class="skill-head-text"><strong><span class="l">jobs</span></strong><span class="skill-head-text-sub"><span class="l">&amp;</span> <span class="l">Education</span></span>
+                        </h4>
+                        <div class="timeline">
+                            <!-- Single event -->
+                            <div class="timeline-event te-primary w-1_3">
+                                <span class="event-date">February 2019  - Present</span>
+                                <span class="event-name">Capita India</span>
+                                <span class="event-description">Working as Angular Developer, Pune</span>
+                            </div>
+                            <!-- Single event -->
+                            <div class="timeline-event te-primary w-1_3">
+                                <span class="event-date">August 2018  - February 2019</span>
+                                <span class="event-name">Light Information Systems</span>
+                                <span class="event-description">Working as Angular Developer, Pune</span>
+                            </div>
+                            <!-- Single event -->
+                            <div class="timeline-event te-primary w-1_3">
+                                <span class="event-date">April 2017  - August 2018</span>
+                                <span class="event-name">Amura Marketing Technology </span>
+                                <span class="event-description">Working as UI Developer, Pune</span>
+                            </div>
+                            <!-- Single event -->
+                            <div class="timeline-event te-primary w-1_3">
+                                <span class="event-date">March 2016  - March-2017</span>
+                                <span class="event-name">SomSon software</span>
+                                <span class="event-description">Worked as UI Developer, Pune</span>
+                            </div>
+                            <!-- Single event -->
+                            <!-- <div class="timeline-event te-primary w-1_3">
+                                <span class="event-date">Jan 2013 - April 2016</span>
+                                <span class="event-name">BCS ( B.sc Computer Science ) </span>
+                                <span class="event-description">Pune University, Pune</span>
+                            </div> -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section id="gallery" class="window_ht gallery-section page-anim">
+            <div class="col-12 d-table common-block h-100">
+                <div class="d-cell gallery-block">
+                    <div class="work-main-block col-12">
+                        <div class="work-block-left col-6 tab-full">
+                            <div class="work-header-block col-12 relative">
+                                <h1 class="work-text relative"><span class="work-style">Work</span></h1>
+                                <p class="work-dis relative">
+                                    Experienced Web Developer with a demonstrated history of working in the marketing and advertising industry.<br> demonstrated history of working in the marketing
+                                    
+                                </p>
+                            </div>
+                        </div>
+                        <div class="work-block-right col-6 ht-100 tab-full">
+                            <div class="work-scroll col-12 relative ht-100">
+                                <ul class="work-list col-12 ht-100 list-style-none">
+                                    <li>
+                                        <div class="col-12 work-list-inner h-100">
+                                            <div class="work-img-dis col-6 h-100 mob-full">
+                                                <div class="d-table h-100">
+                                                    <div class="d-cell">
+                                                        <h4 class="work-img-head">AI NLP for intelligent sales & marketing</h4>
+                                                        <h3 class="work-project-name"> www.asmi.com</h3>
+                                                        <p class="work-project-link"><a href="https://www.nlpbots.com/marketing-assistant.php" target="_blank">View the App,Website,Brand</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="work-img col-6 h-100 mob-full">
+                                                <div class="work-img-bg bg-cover h-100 asmi"></div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="col-12 work-list-inner h-100">
+                                            <div class="work-img-dis col-6 h-100 mob-full">
+                                                <div class="d-table h-100">
+                                                    <div class="d-cell">
+                                                        <h4 class="work-img-head">At Hawkeye Real Estate and Property Management</h4>
+                                                        <h3 class="work-project-name"> www.hawkeye.sell.do</h3>
+                                                        <p class="work-project-link"><a href="http://hawkeye.sell.do" target="_blank">View the App,Website,Brand</a></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="work-img col-6 h-100 mob-full">
+                                                <div class="work-img-bg bg-cover h-100"></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col-12 work-list-inner h-100">
+                                            <div class="work-img-dis col-6 h-100 mob-full">
+                                                <div class="d-table  h-100">
+                                                    <div class="d-cell">
+                                                        <h4 class="work-img-head">International Institute of Fashion Design.</h4>
+                                                        <h3 class="work-project-name">INIFD Pune</h3>
+                                                        <p class="work-project-link">
+                                                            <a href="http://designpune.com/inifd-pune/index.php" target="_blank">View the App,Website,Brand</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="work-img col-6 h-100 mob-full">
+                                                <div class="work-img-bg bg-cover inifd-bg"></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col-12 work-list-inner h-100">
+                                            <div class="work-img-dis col-6 h-100 mob-full">
+                                                <div class="d-table  h-100">
+                                                    <div class="d-cell">
+                                                        <h4 class="work-img-head">Bike and Car loans.</h4>
+                                                        <h3 class="work-project-name">Creditmate.in</h3>
+                                                        <p class="work-project-link">
+                                                            <a href="https://www.creditmate.in/" target="_blank">View the App,Website,Brand</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="work-img col-6 h-100 mob-full">
+                                                <div class="work-img-bg bg-cover creditmate-bg"></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="col-12 work-list-inner h-100">
+                                            <div class="work-img-dis col-6 h-100 mob-full">
+                                                <div class="d-table  h-100">
+                                                    <div class="d-cell">
+                                                        <h4 class="work-img-head">Real estate development.</h4>
+                                                        <h3 class="work-project-name">Embassy springs</h3>
+                                                        <p class="work-project-link">
+                                                            <a href="http://www.embassysprings.com/" target="_blank">View the App,Website,Brand</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="work-img col-6 h-100 mob-full">
+                                                <div class="work-img-bg bg-cover embassy-bg"></div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="col-12 work-list-inner h-100">
+                                            <div class="work-img-dis col-6 h-100 mob-full">
+                                                <div class="d-table  h-100">
+                                                    <div class="d-cell">
+                                                        <h4 class="work-img-head">Skin And Hair solutions.</h4>
+                                                        <h3 class="work-project-name">skinandhairacademy.in</h3>
+                                                        <p class="work-project-link">
+                                                            <a href="http://www.skinandhairacademy.in/" target="_blank">View the App,Website,Brand</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="work-img col-6 h-100 mob-full">
+                                                <div class="work-img-bg bg-cover skinandhair-bg"></div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="col-12 work-list-inner h-100">
+                                            <div class="work-img-dis col-6 h-100 mob-full">
+                                                <div class="d-table  h-100">
+                                                    <div class="d-cell">
+                                                        <h4 class="work-img-head">Real estate development.</h4>
+                                                        <h3 class="work-project-name">The Residences</h3>
+                                                        <p class="work-project-link">
+                                                            <a href="http://runwal.com/_residencesstaging/new/" target="_blank">View the App,Website,Brand</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="work-img col-6 h-100 mob-full">
+                                                <div class="work-img-bg bg-cover residences-bg"></div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="col-12 work-list-inner h-100">
+                                            <div class="work-img-dis col-6 h-100 mob-full">
+                                                <div class="d-table  h-100">
+                                                    <div class="d-cell">
+                                                        <h4 class="work-img-head">Real estate development.</h4>
+                                                        <h3 class="work-project-name">Esquire</h3>
+                                                        <p class="work-project-link">
+                                                            <a href="http://oberoirealty.amuratech.biz/esquire" target="_blank">View the App,Website,Brand</a>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="work-img col-6 h-100 mob-full">
+                                                <div class="work-img-bg bg-cover esquire-bg"></div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <div class="col-12 work-list-inner h-100">
+                                            <div class="d-table  h-100 w-100">
+                                                <div class="d-cell text-center w-100">
+                                                    <p>
+                                                        <a href="img/Ratan_kumar_cv.doc" target="_blank" class="resume-btn" style="opacity: 1;margin-top: 0;">Download Resume</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="window_ht contact-section page-anim">
+            <div class="col-12 ht-100  common-block">
+                <div class=" contact-block ht-100">
+                    <div class="col-5 ht-100 tab-full">
+                        <div class="d-table ht-100">
+                            <div class="d-cell">
+                                <div class="contact-form-block">
+                                    <h1 class="contact-head"><span class="l">C</span><span class="l">o</span><span class="l">n</span><span class="l">t</span><span class="l">a</span><span class="l">c</span><span class="l">t</span> <span class="l">m</span><span class="l">e</span></h1>
+                                    <p class="contact-dis">If you have any questions, please don’t hesitate to contact <br>using form below…</p>
+                                    <div class="contact-from col-12">
+                                        <form class="col-12" action="">
+                                            <div class="col-6 form-field">
+                                                <input type="text" class="name-field input-box w-100" placeholder="Name" id="name">
+                                            </div>
+                                            <div class="col-6 form-field">
+                                                <input type="email" class="email-field input-box w-100" placeholder="Email" id="email">
+                                            </div>
+                                            <div class="col-12 form-field">
+                                                <input type="input" class="subject-field input-box w-100" placeholder="Subject" id="subject">
+                                            </div>
+                                            <div class="col-12 form-field">
+                                                <textarea style="resize: none;" name="" class="message-field area-box w-100" placeholder="Message" id="message"></textarea>
+                                            </div>
+                                            <div class="col-12 form-field">
+                                                <input type="submit" class="submit-field submit-box" placeholder="Subject" id="subject">
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- <div class="thankyou">
+                                        <p class="thankyou-msg">Thank you for getting in touch!</p>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-7 text-center h-100 tab-full">
+                        <div class="or-inner">
+                            <p class="send-text">
+                                <span class="relative secd-text-or">Send an email,
+                                    <span class="send-arrow">
+                                        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 476.213 476.213">
+                                            <path d="M405.606 167.5l-21.212 21.213 34.393 34.393H0v30h418.787L384.394 287.5l21.212 21.213 70.607-70.607"></path>
+                                        </svg>
+                                    </span>
+                                </span>
+                            </p>
+                            <h2 class="or-head"><span class="l">Or</span></h2>
+                            <p class="or-dis">copy my address from the input below.</p>
+                            <a class="or-email l">ratan#DOT#kumar67890#AT#gmail.com</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="resume" class="resume-section text-center col-12">
+            <p class="col-12"><a href="img/Ratan_kumar_cv.doc" target="_blank" class="resume-btn">Download Resume</a></p>
+			
+            <div class="social-icon-block col-12">
+                <div class="social-list">
+                    <a href="https://www.facebook.com/ratankumar.rebari" class="bg-cover fb media" target="_blank"></a>
+                    <a href="https://twitter.com/ratankumar91" class="bg-cover tw media" target="_blank"></a>
+                    <a href="https://www.linkedin.com/in/ratan-kumar-rebari/" class="bg-cover ln media" target="_blank"></a>
+                    <a href="https://www.instagram.com/ratankumarrebari/" class="bg-cover in media" target="_blank"></a>
+                </div>
+            </div>
+        </section>
+    </section>
+<script src="pwabuilder-sw-register.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <!-- <script src="http://s3-ap-southeast-1.amazonaws.com/assets.ngauge.co/javascripts/ecommerce.js" type="text/javascript"></script> -->
+    <script src="js/jquery.easeScroll.js"></script>
+    <script src="js/modernizr.min.js"></script>
+    <script src="js/main.js"></script>
+     <!-- facebook -->
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '440629053360568',
+      xfbml      : true,
+      version    : 'v3.2',
+      status     : true
+    });
+    FB.AppEvents.logPageView();
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+
+
+   function statusChangeCallback(response) {
+    console.log('statusChangeCallback');
+    console.log(response);
+    if (response.status === 'connected') {
+      // Logged into your app and Facebook.
+      testAPI();
+    } else {
+      // The person is not logged into your app or we are unable to tell.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this app.';
+    }
+  }
+
+    function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+            console.log(' checkLoginState stats=>>>>>'+response)
+        });
+    }
+
+    function testAPI() {
+        console.log('Welcome!  Fetching your information.... ');
+
+        FB.api('/me','GET',{fields:' email , name , picture '}, function(response) {
+            console.log('Successful login for: ' + response.email,response.picture);
+            document.getElementById('hideme').style.display = 'none'
+            document.getElementById('logedIN').style.display = 'block'
+            userName = response.name;
+            userPic = response.picture.data.url;
+            email = response.email;
+            document.getElementById('picture').style.backgroundImage = 'url('+ userPic +')';
+            document.getElementById('name').innerHTML = userName ;
+        });
+    }
+
+
+</script>
+  <!-- facebook -->
+</body>
+
+</html>
